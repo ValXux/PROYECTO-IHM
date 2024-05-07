@@ -7,10 +7,21 @@ import {
     RouterProvider,
 } from "react-router-dom";
 
+import Main from './main';
 import Aside from './aside';
 
 import Basic from './layout/basic';
 import Single from './single';
+
+import Profile from './route/profile';
+
+
+
+const feather = require('feather-icons');
+
+setTimeout ( () => {
+    feather.replace();
+}, 1);
 
 const router = createBrowserRouter([
     {
@@ -20,19 +31,20 @@ const router = createBrowserRouter([
             {
                 path: '',
                 element: <>
-                    <div className='col-md-4'>
+                    <div>
+                        <Main></Main>
+                    </div>
+                    <div>
                         <Aside></Aside>
-                    </div>
-                    <div className='col-md-4'>
-
-                    </div>
-                    <div className='col-md-4'>
-
                     </div>
                 </>
             },
             {
-                path: "detalle/:slug",
+                path: '/perfil',
+                element: <Profile />,
+            },
+            {
+                path: '/:slug',
                 element: <Single />,
             },
         ],
